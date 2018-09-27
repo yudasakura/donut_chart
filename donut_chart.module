@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains donut_chart.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function donut_chart_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the svg_circle_chart module.
+    case 'help.page.donut_chart':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Donut chart') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function donut_chart_theme() {
+  return array(
+    'donut-chart' => array(
+      'variables' => array(
+        'value' => NULL,
+      ),
+      'template' => 'donut_chart',
+    ),
+  );
+}
