@@ -28,7 +28,7 @@ function donut_chart_help($route_name, RouteMatchInterface $route_match) {
  */
 function donut_chart_theme() {
   return array(
-    'donut-chart' => array(
+    'donut_chart' => array(
       'variables' => array(
         'value' => NULL,
       ),
