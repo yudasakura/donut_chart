@@ -2,8 +2,6 @@
 
 namespace Drupal\donut_chart\Plugin\Field\FieldFormatter;
 
-use Drupal\Component\Utility\Html;
-use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -106,7 +104,7 @@ class DonutFieldFormatter extends FormatterBase {
     $elements = [];
     foreach ($items as $delta => $item) {
       $value = $item->value;
-      $elements[$delta] = array(
+      $elements[$delta] = [
         '#theme' => 'donut_chart',
         '#value' => [
           'number' => $value,
@@ -115,8 +113,8 @@ class DonutFieldFormatter extends FormatterBase {
           'secondary_color' => $this->getSetting('secondary_color'),
           'secondary_width' => $this->getSetting('secondary_width'),
           'text_color' => $this->getSetting('text_color'),
-        ]
-      );
+        ],
+      ];
       $elements[$delta]['#attached']['library'][] = 'donut_chart/donut-chart';
     }
 
